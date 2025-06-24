@@ -1,13 +1,598 @@
-body {
+/* FinanceFlow Solutions - Bank FD Rates App Styles */
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Main Container */
+.fd-rates-container {
+  min-height: 100vh;
+  background: rgb(222, 222, 222);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Header Styles */
+.fd-rates-header {
+  background: white;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+}
+
+.fd-rates-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.fd-rates-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fd-rates-logo-icon {
+  width: 30%;
+  height: 30%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fd-rates-logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fd-rates-company-info {
+  color: #2c316d;
+}
+
+.fd-rates-company-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.fd-rates-company-tagline {
+  font-size: 0.875rem;
+  color: #2c316d;
+  margin: 0;
+}
+
+.fd-rates-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: #2c316d;
+  font-size: 0.875rem;
+}
+
+.fd-rates-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Main Content */
+.fd-rates-main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.fd-rates-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Hero Section */
+.fd-rates-hero-section {
+  background: #2c316d;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.fd-rates-hero-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.fd-rates-hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.fd-rates-hero-subtitle {
+  font-size: 1.125rem;
+  color: #bfdbfe;
+  margin: 0 0 2rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fd-rates-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.fd-rates-stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.fd-rates-stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.fd-rates-stat-label {
+  font-size: 0.875rem;
+  color: #bfdbfe;
+  margin: 0;
+}
+
+/* Content Area */
+.fd-rates-content-area {
+  padding: 2rem;
+}
+
+/* API Status */
+.fd-rates-api-status {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.fd-rates-api-status.connected {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.fd-rates-api-status.disconnected {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+/* Bank Grid */
+.fd-rates-bank-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fd-rates-bank-card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.fd-rates-bank-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fd-rates-bank-card.selected {
+  background: linear-gradient(135deg, #eff6ff, #f3e8ff);
+  border-color: #3b82f6;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.fd-rates-bank-card.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.fd-rates-bank-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.fd-rates-bank-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fd-rates-bank-name {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.fd-rates-bank-url {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0 0 0.75rem 0;
+  word-break: break-all;
+}
+
+.fd-rates-status-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.fd-rates-status-text.success {
+  color: #059669;
+}
+
+.fd-rates-status-text.error {
+  color: #dc2626;
+}
+
+.fd-rates-status-text.default {
+  color: #6b7280;
+}
+
+.fd-rates-selected-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Progress Bar */
+.fd-rates-progress-container {
+  margin-bottom: 2rem;
+}
+
+.fd-rates-progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.fd-rates-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fd-rates-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #059669);
+  transition: width 0.3s ease;
+}
+
+/* Action Buttons */
+.fd-rates-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.fd-rates-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.fd-rates-button.primary {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.fd-rates-button.success {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.fd-rates-button.danger {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.fd-rates-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fd-rates-button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.fd-rates-button.primary:not(:disabled):hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.fd-rates-button.success:not(:disabled):hover {
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+}
+
+.fd-rates-button.danger:not(:disabled):hover {
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+/* Messages */
+.fd-rates-messages {
+  margin-bottom: 2rem;
+}
+
+.fd-rates-message {
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease;
+}
+
+.fd-rates-message.success {
+  background: #dcfce7;
+  border-left-color: #059669;
+  color: #166534;
+}
+
+.fd-rates-message.error {
+  background: #fef2f2;
+  border-left-color: #dc2626;
+  color: #991b1b;
+}
+
+/* Results Section */
+.fd-rates-results-section {
+  margin-top: 2rem;
+}
+
+.fd-rates-results-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.fd-rates-table-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.fd-rates-table-header {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  padding: 1.5rem;
+  color: white;
+}
+
+.fd-rates-table-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fd-rates-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fd-rates-table thead tr {
+  background: #f9fafb;
+}
+
+.fd-rates-table th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fd-rates-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.fd-rates-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.fd-rates-table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Footer */
+.fd-rates-footer {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 3rem;
+}
+
+.fd-rates-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fd-rates-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fd-rates-footer-logo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fd-rates-footer-logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fd-rates-footer-company-name {
+  color: white;
+  font-weight: 600;
+  margin: 0;
+}
+
+.fd-rates-footer-copyright {
+  color: #bfdbfe;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.fd-rates-footer-info {
+  color: #bfdbfe;
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.fd-rates-footer-info p {
+  margin: 0;
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fd-rates-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fd-rates-contact-info {
+    display: none !important;
+  }
+  
+  .fd-rates-hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .fd-rates-action-buttons {
+    flex-direction: column !important;
+  }
+  
+  .fd-rates-action-buttons .fd-rates-button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  .fd-rates-footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .fd-rates-footer-info {
+    text-align: center !important;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fd-rates-hero-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .fd-rates-hero-subtitle {
+    font-size: 1rem !important;
+  }
+  
+  .fd-rates-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
