@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AlertCircle, Download, RefreshCw, Trash2, CheckCircle, Loader2, Building2, TrendingUp, Calendar, Phone, Mail, MapPin } from 'lucide-react';
 import Logo from "../logo.png";
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://malshi.pythonanywhere.com/api';
 
 export default function BankFDRatesApp() {
   const [banks, setBanks] = useState({
